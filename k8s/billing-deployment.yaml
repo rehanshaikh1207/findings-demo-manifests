@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billing
+  namespace: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
+    spec:
+      containers:
+        - name: billing
+          image: ghcr.io/example/shop-billing:2.0.1
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          securityContext:
+            runAsUser: 0
