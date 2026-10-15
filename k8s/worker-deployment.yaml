@@ -24,3 +24,4 @@ spec:
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000
+            privileged: true
